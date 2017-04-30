@@ -1,0 +1,12 @@
+#admin_remove{
+  border-radius : 50%;
+  background-color:transparent;
+  border-color: transparent;
+  margin: 2% 4% 2% 4%;
+  font-size: 500%;
+  transition-duration: 0.2s;
+}
+#admin_remove:hover{
+  background-color:rgba(22,67,78,0);
+  box-shadow: 10px 10px 10px #d3d3d3;
+}

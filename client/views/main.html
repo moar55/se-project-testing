@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html ng-app="main">
+  <head>
+    <meta charset="utf-8">
+    <!-- Angular script imported -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- ngRouting imported -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <!--ngAnimate imported -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <!-- ngCookies  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-file-upload/2.5.0/angular-file-upload.min.js" charset="utf-8"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Newsfeed styling  -->
+    <link rel="stylesheet" href="../css/news.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+
+    <!-- Brarintree Payment libraries  -->
+    <!-- Load the Client component. -->
+    <script src="https://js.braintreegateway.com/web/3.13.0/js/client.min.js"></script>
+
+    <!-- Load the Hosted Fields component. -->
+    <script src="https://js.braintreegateway.com/web/3.13.0/js/hosted-fields.min.js"></script>
+
+    <!--Scripts-->
+    <script src="../js/app.js"></script>
+    <script src="../js/controllers/mainCtrl.js"></script>
+    <script src="../js/controllers/authCtrl.js"></script>
+    <script src="../js/controllers/homeCtrl.js"></script>
+    <script src="../js/controllers/logoutCtrl.js"></script>
+    <script src="../js/controllers/adminCtrl.js"></script>
+    <script src="../js/controllers/businessCtrl.js"></script>
+    <script src="../js/controllers/student_profileCtrl.js"></script>
+    <script src="../js/controllers/student_editCtrl.js"></script>
+    <script src="../js/controllers/searchCtrl.js"></script>
+    <script src="../js/controllers/courseCtrl.js"></script>
+    <script src="../js/controllers/newsCtrl.js"></script>
+    <script src="../js/controllers/paymentCtrl.js"></script>
+    <script src="../js/controllers/serviceprovider_editCtrl.js"></script>
+    <script src="../js/controllers/serviceprovider_profileCtrl.js"></script>
+    <script src="../js/controllers/passResetCtrl.js"></script>
+    <script src="../js/controllers/forgotPassCtrl.js"></script>
+    
+    <!--Styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <title></title>
+    <link rel="stylesheet" href="../css/dropdown.css"  />
+    <link rel="stylesheet" href="../css/business.css"  />
+    <link rel="stylesheet" href="../css/admin.css"  />
+    <link rel="stylesheet" href="../css/main.css"  />
+    <link rel="stylesheet" href="../css/search.css"  />
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+      document.getElementById("admin_myDropdown").classList.toggle("show");
+    }
+    function searchBar(){
+      document.getElementById("drop_search").classList.toggle("show");
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+    }
+
+    </script>
+    <base href="/">
+  </head>
+  <body ng-controller="mainCtrl" ng-style="body" class="body_class">
+    <div class="container-fluid">
+      <!-- Normal Header-->
+      <div id="header" class="ng-hide row" ng-hide="log">
+        <a href="/" class="col-xs-1">
+          <img src="../img/apple_logo.png" style="width:45%;height:45%" />
+        </a>
+        <div class="col-xs-5" ng-controller="searchCtrl">
+          <form id="search-form" ng-submit="search()">
+            <input type="radio" name="type" value="student" checked> Student
+            <input type="radio" name="type" value="serviceProvider"> Business
+            <input type="radio" name="type" value="course" />Course
+            <input input class="col-xs-6" type="text" id="norm-search-field" style="margin:0% 3% 0% 3%;border-radius:20px;border:none;padding:1.2% 1% 1.2% 1%;color:#777777" placeholder="Search" ng-model="query" ng-init="query=''" >
+          </form>
+          <div style="font-size:60%" id="search_drop" class="dropdown-content">
+            <a  style="cursor:pointer;" ng-click="loadProfile()">My Profile</a>
+            <a style="cursor:pointer;" ng-click="leave()">Logout</a>
+          </div>
+        </div>
+
+        <div class="col-xs-5" ng-style="{'color':'white','font-size':'200%','font-family':'Lato'}">
+        <a href="/profile">
+          <img class="col-xs-4" src="http://www.pilawoos.lk/images/test_user.png" style="width:12%;height:12%" />
+        </a>
+          <div class="dropdown" ng-controller="logoutCtrl">
+            <button onclick="myFunction()" class="dropbtn">{{user}}<i class="fa fa-chevron-down"></i></button>
+            <div style="font-size:60%" id="myDropdown" class="dropdown-content">
+              <a  style="cursor:pointer;" ng-click="loadProfile()">My Profile</a>
+              <a style="cursor:pointer;" ng-click="leave()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Admin header-->
+      <div id="admin_header" class="row" style="display:none;background-color:#002222;padding:1%;">
+        <a href="/" class="col-xs-1">
+          <img src="../img/doritos.png" style="width:70%;height:70%" />
+        </a>
+        <input class="col-xs-6" type="text" style="margin:0% 3% 0% 3%;border-radius:20px;border:none;padding:1.2% 1% 1.2% 1%;color:#777777" placeholder="Search" />
+        <div ng-style="{'color':'white','font-size':'200%','font-family':'Lato'}">
+          <div class="dropdown" ng-controller="logoutCtrl">
+            <button onclick="myFunction()" class="dropbtn">{{user}}  <i class="fa fa-chevron-down"></i></button>
+            <div style="font-size:60%" id="admin_myDropdown" class="dropdown-content">
+              <a style="cursor:pointer;" ng-click="leave()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="query_result">
+      </div>
+      <div id="the-rest">
+      <script type="text/javascript">
+
+      $(document).keyup(function(e) {
+        if(e.keyCode == 27){
+          $("#query_result").html("");
+          $("#norm-search-field").val("");
+          }
+        })
+
+        $("#the-rest").mousedown(function () {
+          $("#query_result").html("");
+          $("#norm-search-field").val("")
+        })
+      </script>
+     <div ng-view></div>
+   </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<form id="checkout-form" ng-submit="submit()">
+  <div id="error-message"></div>
+
+  <label for="card-number">Card Number</label>
+  <div class="form-control hosted-field" id="card-number" ></div>
+
+  <label for="cvv">CVV</label>
+  <div class="form-control hosted-field" id="cvv"></div>
+
+  <label for="expiration-date">Expiration Date</label>
+  <div class="form-control hosted-field" id="expiration-date"></div>
+
+  <input type="hidden" name="payment_method_nonce">
+  <input type="submit"  value="Pay $10" disabled>
+</form>

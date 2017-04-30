@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="col-xs-9">
+    <h2 class="text-center">Courses</h2>
+    <h5 class="text-center">Click to add an event</h5>
+      <div ng-repeat="x in courses"ng-model="x.name">
+        <a data-toggle="modal" data-target="#create"><div class="col-xs-12 div_course">
+          <span ng-style="{'font-size':'300%'}">{{x.name}}</span><br />
+          {{x.description}}
+        </div></a>
+      </div>
+        <button data-toggle="modal" data-target="#add" class="col-xs-12 div_coursee">
+          <h2 class="text-center">Add Course</h2><br />
+        </button>
+  <div id="balabizo">
+    <div>
+    </div>
+  </div>
+  </div>
+  <div class="col-xs-3">
+    <h2 class="text-center">Reviews</h2>
+    <div id="reviews">
+
+    </div>
+  </div>
+
+  <div id="create" class="modal fade page"role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content" style="background-color : #32cd32" >
+
+    <h1 class="text-center">Create Event</h1>
+    <div class="modal-body" style="background-color : #32cd32" >
+      <input class="form-control" placeholder="Event Name" ng-model="event_name" /><br />
+      <input class="form-control" placeholder="Description" type="text" ng-model="event_description" /><br />
+      <input class="form-control" placeholder="Date" type="date" ng-model="date" /><br />
+      <button class="btn-primary" data-dismiss="modal" ng-click="">Submit</button>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="add" class="modal fade page"role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content" style="background-color : #34543" >
+    <div id="add_div" class="modal-body ng-hide" ng-hide="billing" style="x`x` : #32cd32" >
+    <h2 class="text-center">Billing Info</h2>
+    <h6 class="text-center">You need to provide your billing info before you proceed</h6>
+    <form>
+      <div class="col-xs-6">
+        <h5>User</h5>
+        <input class="form-control bill_form" ng-model="street_address" placeholder="Street Address" /><br />
+        <input class="form-control bill_form" ng-model="_locality" placeholder="Locality" /><br />
+        <input class="form-control bill_form" ng-model="region" placeholder="Region" /><br />
+        <input class="form-control bill_form" ng-model="postal_code" placeholder="Postal Code" /><br />
+      </div>
+      <div class="col-xs-6">
+        <h5>Company</h5>
+        <input class="form-control bill_form" ng-model="company_street_address" placeholder="Street Address" /><br />
+        <input class="form-control bill_form" ng-model="company_locality" placeholder="Locality" /><br />
+        <input class="form-control bill_form" ng-model="company_region" placeholder="Region" /><br />
+        <input class="form-control bill_form" ng-model="company_postal_code" placeholder="Postal Code" /><br />
+      </div>
+      Date of birth:<br /><input class="form-control" ng-model="birthdate" type="date" placeholder="Date of birth" /><br />
+      <button class="btn btn-success center-block" type="submit" ng-click="billing_info()" data-dismiss="modal">Submit</button>
+      </form>
+    </div>
+    <div class="modal-body ng-hide" ng-hide="!billing" style="x`x` : #32cd32" >
+    <h1 class="text-center">Add Course</h1>
+    <form>
+      <input class="form-control" ng-model="course_name" placeholder="Course Name" /><br />
+      <input class="form-control" ng-model="course_description" placeholder="Description" /><br />
+      <input class="form-control" ng-model="skill" placeholder="Skill" /><br />
+      <input class="form-control" ng-model="price" placeholder="Price" /><br />
+      <input class="form-control" ng-model="currency" placeholder="Currency" /><br />
+      <button class="btn btn-primary" type="submit" ng-click="add_course()" data-dismiss="modal">Submit</button>
+    </form>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

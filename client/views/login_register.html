@@ -1,0 +1,133 @@
+<div>
+
+
+  <div class="container text-center center-block">
+    <div id="login_div" class="col-xs-4 container panel-collapse collapse">
+      <div  class="panel-body">
+        <h1 class="panel-header">Login</h1><br />
+       <label class="switch6-light" onclick="">
+        <input type="checkbox" unchecked id="login_unit">
+          <span>
+            <span>Student</span>
+            <span>Service Provider</span>
+          </span>
+          <a class="btn btn-default btn-lg"></a>
+      </label>
+      <span ng-style="{'color':'#cc0000'}">
+        {{error_login}}
+      </span>
+        <br />
+        <form novalidate>
+         <input class="form-control" placeholder="username" ng-model="login_username" autofocus required /><br />
+         <a style="float:right;cursor:pointer" data-toggle="modal" data-target="#forgot-password">forgot your password?</a>
+
+         <input class="form-control" placeholder="password" type="password" ng-model="login_password" required /><br />
+         <button type="submit" class="btn" ng-click="login_submit()" class="close" data-dismiss="modal">Submit</button><br />
+        </form>
+      </div>
+    </div>
+
+    <div id="register_div" class="col-xs-4 container panel-collapse collapse">
+      <div class="panel-body">
+            <h1 class="">Register</h1>
+              <label class="switch6-light" onclick="">
+                   <input type="checkbox" unchecked id="unit">
+                   <span>
+                     <span>Student</span>
+                     <span>Service Provider</span>
+                   </span>
+                   <a class="btn btn-default btn-lg"></a>
+               </label>
+              <span ng-style="{'color':'#cc0000'}">
+                {{error_register}}
+              </span>
+            <div class="panel-body">
+              <div class="col-xs-6"><input class="form-control" placeholder="First Name" ng-model="register_firstName" /></div>
+              <div class="col-xs-6"><input class="form-control" placeholder="Last Name" ng-model="register_lastName" /></div>
+              <hr /><hr />
+              <input class="form-control" placeholder="School" ng-model="register_school" id="school" />
+              <input class="form-control" placeholder="Business Name" ng-model="register_businessName" id="businessName" /><br />
+              <input class="form-control" type="email" placeholder="Email" ng-model="register_email" /><br />
+              <input class="form-control" placeholder="Nationality" ng-model="register_nationality" /><br />
+              <input class="form-control" placeholder="Age" ng-model="register_age" /><br />
+              <input class="form-control" placeholder="Username" ng-model="register_username" /><br />
+              <div class="col-xs-6"><input class="form-control" placeholder="Password" type="password" ng-model="register_password" /></div>
+              <div class="col-xs-6"><input class="form-control" placeholder="Verify password" type="password" ng-model="register_password2" /></div><br />
+              <hr /><hr />-
+              <button class="btn" ng-click="register_submit()">Submit</button>
+           </div>
+      </div>
+    </div>
+
+    <img id="apple_logo" class="center-block" src="../img/apple_logo.png" /><br />
+     <!-- <button class="main_button" data-toggle="modal" data-target="#login">Login</button>
+         <div id="login" class="modal fade page" role="dialog" data-target="modal-dialog">
+           <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-body">
+               <div class="col-xs-6">
+                 <h1>Login</h1>
+                <label class="switch6-light" onclick="">
+                 <input type="checkbox" unchecked id="login_unit">
+                   <span>
+                     <span>Student</span>
+                     <span>Service Provider</span>
+                   </span>
+                   <a class="btn btn-default btn-lg"></a>
+               </label>
+                 {{error}}
+
+                 <form novalidate>
+                  <input class="form-control" placeholder="username" ng-model="login_username" required />
+                  <input class="form-control" placeholder="password" type="password" ng-model="login_password" required />
+                  <button type="submit" class="btn" ng-click="login_submit()" class="close" data-dismiss="modal">Submit</button>
+                 </form>
+               </div>
+
+
+             </div>
+
+
+           <div class="modal-body">
+
+           </div>
+         </div>
+       </div>
+     </div> -->
+
+     <button id="login_butt" class="main_button" data-toggle="collapse" href="#login_div">Login</button><br />
+
+     <button id="register_butt" class="main_button" data-toggle="collapse" href="#register_div">Register</button><br />
+
+    <button class="main_button" data-toggle="modal" data-target="#admin_login">Admin Login</button>
+     <div id="admin_login" class="modal fade page" role="dialog">
+       <div class="modal-dialog">
+       <div class="modal-content">
+
+       <h1 class="">Admin Login</h1>
+         {{error}}
+       <div class="modal-body">
+         <input class="form-control" placeholder="Username" ng-model="admin_username" /><br />
+         <input class="form-control" placeholder="Password" type="password" ng-model="admin_password" /><br />
+
+         <button class="btn" ng-click="admin_submit()" data-dismiss="modal">Submit</button>
+       </div>
+
+      </div>
+     </div>
+     </div>
+     <div id="forgot-password" class="modal fade page" role="dialog">
+       <div class="modal-dialog"><div xlass="modal-content">
+                 <div class="modal-body">
+                             <h2>Send Reset Mail</h2>
+                    <form id="forgot_pass_form">
+                      <input class="form-control" placeholder="email" ng-model="email" />
+                      <input type="radio" name="type" value="student" checked> Student
+                      <input type="radio" name="type" value="serviceProvider"> Service Provider
+                      <button class="btn" ng-click="reset_pass()" data-dismiss="modal">Send</button>
+                    </form>
+         </div></div></div>
+     </div>
+
+  </div>
+</div>

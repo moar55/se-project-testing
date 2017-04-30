@@ -1,0 +1,201 @@
+<div align="center">
+
+      <img class="profile-pic" src="notknown.jpg" alt="image not visible" id="img" >
+      <div class="upload-button" >Upload Image</div>
+      <input class="file-upload" type="file" accept="image/*"/>
+
+      <div class="hi">
+
+      </div>
+      <div ng-controller="usernameCtrl">
+        <label>Username:</label>
+
+        <div ng-hide="editorEnabled">
+          {{username}}
+          <button id="ozz" ng-click="enableEditor()">Edit Username</button>
+        </div>
+
+        <div ng-show="editorEnabled">
+          <input ng-model="editableUsername" ng-show="editorEnabled">
+          <button ng-click="save()">Save</button>
+          or
+          <button ng-click="disableEditor()">cancel</button>.
+        </div>
+
+      </div>
+
+      <div ng-controller="nationalityCtrl">
+        <label>Nationality:</label>
+
+
+        <div ng-hide="editorEnabled">
+          {{nationality}}
+          <button id="ozz" ng-click="enableEditor()">Edit Nationality</button>
+        </div>
+
+        <div ng-show="editorEnabled">
+          <input ng-model="editableNationality" ng-show="editorEnabled">
+          <button ng-click="save()">Save</button>
+          or
+          <button ng-click="disableEditor()">cancel</button>.
+        </div>
+
+
+      </div>
+      <div ng-controller="mobilenumberCtrl">
+        <label>Mobile Number:</label>
+
+        <div ng-hide="editorEnabled">
+          {{mobileNumber}}
+          <button id="ozz" ng-click="enableEditor()">Edit Mobile Number</button>
+        </div>
+
+        <div ng-show="editorEnabled">
+          <input ng-model="editableMobilenumber" ng-show="editorEnabled">
+          <button ng-click="save()">Save</button>
+          or
+          <button ng-click="disableEditor()">cancel</button>.
+        </div>
+
+
+      </div>
+      <div ng-controller="businessnameCtrl">
+        <label>Business Name:</label>
+
+
+        <div ng-hide="editorEnabled">
+          {{businessName}}
+          <button id="ozz" ng-click="enableEditor()">Edit Business name</button>
+        </div>
+
+        <div ng-show="editorEnabled">
+          <input ng-model="editableBusinessname" ng-show="editorEnabled">
+          <button  ng-click="save()">Save</button>
+          or
+          <button  ng-click="disableEditor()">cancel</button>.
+        </div>
+
+
+      </div>
+        <div ng-controller="ageCtrl">
+          <label>Age:</label>
+
+          <div ng-hide="editorEnabled">
+            {{age}}
+            <button id="ozz" ng-click="enableEditor()">Edit Age</button>
+          </div>
+
+          <div ng-show="editorEnabled">
+            <input ng-model="editableAge" ng-show="editorEnabled">
+            <button  ng-click="save()">Save</button>
+            or
+            <button  ng-click="disableEditor()">cancel</button>.
+          </div>
+
+
+        </div>
+        <div ng-controller="emailCtrl">
+          <label>Email:</label>
+
+          <div ng-hide="editorEnabled">
+            {{email}}
+            <button id="ozz" ng-click="enableEditor()">Edit Email</button>
+          </div>
+
+          <div ng-show="editorEnabled">
+            <input ng-model="editableEmail" ng-show="editorEnabled">
+            <button ng-click="save()">Save</button>
+            or
+            <button ng-click="disableEditor()">cancel</button>.
+          </div>
+
+
+
+        </div>
+        <div ng-controller="skillCtrl">
+          <label>Skills</label>
+
+          <div ng-hide="editorEnabled">
+            <ol>
+            <li ng-repeat="x in skills">
+            {{x}}
+              <button id="ozz" ng-click="enableEditor()">Edit Skills</button>
+          </li>
+        </ol>
+
+          </div>
+
+          <div ng-show="editorEnabled">
+            <input ng-model="editableSkill" ng-show="editorEnabled">
+            <button ng-click="save()">Save</button>
+
+          or
+            <button ng-click="disableEditor()">cancel</button>.
+          </div>
+        </div>
+
+        <div ng-controller="courseCtrl" ng-submit="addCourse()">
+          <label>Courses</label>
+
+          <div ng-hide="editorEnabled">
+            <ol>
+            <li ng-repeat="x in course">
+            {{x}}
+              <button id="ozz" ng-click="enableEditor()">Edit Courses</button>
+          </li>
+
+          <label>Add Course <input type="text" ng-model="newcourse"/></label>
+          <input type="submit" value="add new course" />
+
+        </ol>
+
+          </div>
+
+          <div ng-show="editorEnabled">
+            <input ng-model="editableCourse" ng-show="editorEnabled">
+            <button ng-click="save()">Save</button>
+
+         or
+            <button ng-click="disableEditor()">cancel</button>.
+          </div>
+        </div>
+
+        <div ng-controller="reviewsCtrl">
+          <label>Reviews</label>
+
+            <ol>
+            <li ng-repeat="x in reviews">
+            {{x}}
+          </li>
+        </ol>
+
+        </div>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+  });
+        </script>
+
+
+  <script>
+   if (user.username === $scope.username){
+      $("#ozz").show();
+    }else $("#ozz").hide();
+  </script>
+
+</div>

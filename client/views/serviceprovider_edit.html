@@ -1,0 +1,35 @@
+
+
+      <div ng-controller = "serviceprovider_editCtrl" id=edit_general>
+
+        <h1>Edit {{username}}'s Profile </h1>
+
+
+          First Name :<input name="firstName" type="text" class="form-control"
+                placeholder= {{firstName}} ng-model ="firstName"/><br />
+          Last Name :<input name="lastName" type="text" class="form-control"
+                {{lastName}} ng-model ="lastName" /><br />
+          Age :<input name="age" type="text" class="form-control"
+                placeholder= {{age}} ng-model ="age" /><br />
+          Email :<input name="email" type="text" class="form-control"
+                placeholder= {{email}} ng-model ="email"/><br />
+          Mobile Number :<input name="mobileNumber" type="text" class="form-control"
+                placeholder= {{mobileNumber}} ng-model ="mobileNumber" /><br />
+          Nationality :<input name="nationality" type="text" class="form-control"
+                placeholder= {{nationality}} ng-model ="nationality"/><br />
+          Business Name :<input name="businessName" type="text" class="form-control"
+                placeholder= {{businessName}} ng-model ="businessName"/><br />
+          <a class="btn btn-primary" ng-click="edit_submit()" >Submit</a>
+          <a class="btn btn-primary" ng-click="cancel()" >Cancel</a>
+
+
+             <h2> Skills</h2>
+             <p>  <input name="skills" type="text" class="form-control"
+               placeholder= "add skill" ng-model ="skill"/><br />
+               <a class="btn btn-primary" ng-click="add_Skill(skill)" >Add Skill</a>
+
+             <p> <select ng-model="skill_deleted">
+                <option ng-repeat="y in skills" value="{{y}}">{{y}}</option>
+              </select>
+              <a class="btn btn-primary" ng-click="delete_Skill(skill_deleted)" >Delete Skill</a>
+           </div>

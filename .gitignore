@@ -1,0 +1,11 @@
+#node modules
+node_modules
+
+#students photos folder
+students_photos
+
+#service providers photos folder
+service_providers_photos
+
+#uploads
+uploads

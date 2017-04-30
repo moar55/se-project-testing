@@ -1,0 +1,45 @@
+<button style="float:right;margin-right:4%;padding:20px;" ng-click="follow()"  class="btn btn-lg btn-default" > Follow</button>
+
+  <div ng-controller = "serviceprovider_profileCtrl" id ="profile" style="width:75%">
+    <h1>Welcome to {{username}}'s Profile <a id = "pencil" style ="cursor:pointer" ng-click = "edit_general()"><i class="fa fa-pencil" aria-hidden="true"  ></i> General Info  </a> </h1>
+
+    <p>First Name:{{firstName}} </p>
+    <p>Last Name:{{lastName}} </p>
+    <p>age:{{age}} </p>
+    <p>mobileNumber:{{mobileNumber}} </p>
+    <p>email : {{email}}</p>
+    <p>nationality:{{nationality}} </p>
+    <p>Business Name:{{businessName}} </p>
+    <p>Courses </p>
+    <ul>
+      <li ng-repeat="x in courses">
+        {{x.name}}
+      </li>
+    </ul>
+    <p>Reviews</p>
+    <ul>
+      <li ng-repeat = "y in reviews">
+        <p>{{y.username }} 's review</p>
+        <p>{{y.text}}</p>
+        <p>{{y.stars}} stars</p>
+      </li>
+    </ul>
+
+    <p>Average Rate :{{AverageRate(reviews)}}</p>
+      <p> Skills</p>
+    <ul>
+      <li ng-repeat = "z in skills">
+        {{z}}
+      </li>
+    </ul>
+    <div ng-controller = "serviceprovider_editCtrl" id=review>
+      <h2> Review</h2>
+      <p><input name="reviews" type="text" class="form-control"
+        placeholder= "add Review" ng-model ="review"/><br />
+        <p><input name="stars" type="text" class="form-control"
+          placeholder= "no of stars" ng-model ="stars"/><br />
+        <a class="btn btn-primary" ng-click="add_Review(review,stars)" >Add Review</a></p>
+
+
+  </div>
+  </div>

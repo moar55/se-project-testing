@@ -1,0 +1,36 @@
+<div ng-controller="adminCtrl">
+  <button id="admin_remove" ng-click="showList()"><img src="../img/close_red.png" /></button>
+  <button class = "btn-primary" ng-click="showAccept()">Accept/Reject Service Providers</button>
+
+  <div id="butts">
+    <button ng-click="remove_student()" class="btn">Student</button>
+    <button ng-click="remove_sp()" class="btn">Service Provider</button>
+    <button ng-click="remove_event()" class="btn">Event</button>
+
+    <div ng-show="stu" id="butts_st" ng-repeat="x in students">
+      <button ng-click="delete_student(x.username)" class="btn">
+        {{x.username}}
+      </button>
+    </div>
+    <div id="butts_sp" ng-repeat="x in sp">
+      <button ng-show="ser" ng-click="delete_sp(x.username)" class="btn">
+        {{x.username}}
+      </button>
+    </div>
+    <div id="butts_ev" ng-repeat="x in events">
+      <button ng-show="eve" ng-click="delete_events(x.username)" class="btn">
+        {{x.username}}
+      </button>
+    </div>
+
+
+
+  </div>
+  <div id="accept">
+    <div ng-repeat="x in services">
+      {{x.username}}
+      <button class="btn-success" ng-click="accept_sp(x.username)">Accept</button>
+      <button class="btn-danger" ng-click="reject_sp(x.username)">Reject</button>
+    </div>
+  </div>
+</div>

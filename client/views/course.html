@@ -1,0 +1,33 @@
+<div class="search container">
+  <div>
+    <h2>{{course.name}}</h2><br /><h5>by: {{course.businessName}}</h5><br />{{course.description}}
+    <p>
+      Price : {{course.price+" "+course.currency}}
+    </p>
+    <button class="btn btn-info" data-toggle="modal" data-target="#form" ng-click="take_course()">Take Course</button>
+  </div>
+  <div id="form" class="modal fade page" ng-controller="paymentCtrl">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form id="checkout-form" ng-submit="submit()">
+            <div id="error-message"></div>
+
+            <label for="card-number">Card Number</label>
+            <div class="form-control hosted-field" id="card-number" ></div>
+
+            <label for="cvv">CVV</label>
+            <div class="form-control hosted-field" id="cvv"></div>
+
+            <label for="expiration-date">Expiration Date</label>
+            <div class="form-control hosted-field" id="expiration-date"></div>
+
+            <input type="hidden" name="payment_method_nonce">
+            <input class="btn btn-success" type="submit"  value="Pay {{course.price}}+" "+{{course.currency}}" disabled>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

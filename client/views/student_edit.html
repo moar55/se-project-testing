@@ -1,0 +1,36 @@
+
+
+      <div ng-controller = "student_editCtrl"  id= "edit_general">
+
+        <h1>Edit {{username}}'s Profile </h1>
+        <!-- <img src = <%= "uploads/"+{{img}} %> >
+        <p> change your pic <input id = "image" name="image" type="file" class="form-control" enctype="multipart/form-data"
+              placeholder="Upload Your Avatar" ng-model ="img"></p> -->
+        First Name :<input name="firstName" type="text" class="form-control"
+              placeholder= {{firstName}} ng-model ="firstName"/><br />
+        Last Name :<input name="lastName" type="text" class="form-control"
+              {{lastName}} ng-model ="lastName" /><br />
+        Age :<input name="age" type="text" class="form-control"
+              placeholder= {{age}} ng-model ="age" /><br />
+        Email :<input name="email" type="text" class="form-control"
+              placeholder= {{email}} ng-model ="email"/><br />
+        Mobile Number :<input name="mobileNumber" type="text" class="form-control"
+              placeholder= {{mobileNumber}} ng-model ="mobileNumber" /><br />
+        Nationality :<input name="nationality" type="text" class="form-control"
+              placeholder= {{nationality}} ng-model ="nationality"/><br />
+        School :<input name="school" type="text" class="form-control"
+              placeholder= {{school}} ng-model ="school"/><br />
+        <a class="btn btn-primary" ng-click="edit_submit()" >Submit</a>
+        <a class="btn btn-primary" ng-click="cancel()" >Cancel</a>
+        <p>{{error}}</p>
+        <h2> Manage Interests</h2>
+        <p>  <input name="interest" type="text" class="form-control"
+               placeholder= "add interest" ng-model ="interest"/><br />
+        <a class="btn btn-primary" ng-click="add_interest(interest)" >Add Interest</a>
+
+        <p> <select ng-model="interest_deleted">
+              <option ng-repeat="x in interestTags track by $index" value="{{x}}">{{x}}</option>
+            </select>
+        <a class="btn btn-primary" ng-click="delete_interest(interest_deleted)" >Delete Interest</a>
+
+      </div>
