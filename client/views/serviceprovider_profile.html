@@ -1,32 +1,40 @@
 <button style="float:right;margin-right:4%;padding:20px;" ng-click="follow()"  class="btn btn-lg btn-default" > Follow</button>
+  <div ng-controller = "serviceprovider_profileCtrl" class="container prof_div" id ="profile" ng-style="width:75%;margin-top:5%;">
+    <h1>Welcome to {{username}}'s Profile <a id = "pencil" style ="cursor:pointer;" ng-click = "edit_general()"><i class="fa fa-pencil" aria-hidden="true"  ></i> General Info  </a> </h1>
 
-  <div ng-controller = "serviceprovider_profileCtrl" id ="profile" style="width:75%">
-    <h1>Welcome to {{username}}'s Profile <a id = "pencil" style ="cursor:pointer" ng-click = "edit_general()"><i class="fa fa-pencil" aria-hidden="true"  ></i> General Info  </a> </h1>
+    <div class="col-sm-4" >
+    <h2 >First Name</h2><h3>{{firstName}}</h3>
+    <p><h2>Last Name</h2><h3>{{lastName}} </h3></p>
+    <p><h2>Age</h2><h3>{{age}}</h3> </p>
+    <p><h2>Mobile Number</h2><h3>{{mobileNumber}}</h3> </p>
+    <p><h2>Email</h2><h3>{{email}}</h3></p>
+    <p><h2>Nationality</h2><h3>{{nationality}}</h3> </p>
+    <p><h2>Business Name</h2><h3>{{businessName}}</h3> </p>
+    </div>
 
-    <p>First Name:{{firstName}} </p>
-    <p>Last Name:{{lastName}} </p>
-    <p>age:{{age}} </p>
-    <p>mobileNumber:{{mobileNumber}} </p>
-    <p>email : {{email}}</p>
-    <p>nationality:{{nationality}} </p>
-    <p>Business Name:{{businessName}} </p>
-    <p>Courses </p>
-    <ul>
-      <li ng-repeat="x in courses">
+    <div class="col-sm-4" >
+    <h2>Courses </h2>
+    <div class="list-group">
+
+    <ol>
+      <div class="list-group-item" ng-repeat="x in courses">
         {{x.name}}
-      </li>
-    </ul>
-    <p>Reviews</p>
-    <ul>
-      <li ng-repeat = "y in reviews">
-        <p>{{y.username }} 's review</p>
-        <p>{{y.text}}</p>
-        <p>{{y.stars}} stars</p>
-      </li>
-    </ul>
+      </div>
 
-    <p>Average Rate :{{AverageRate(reviews)}}</p>
-      <p> Skills</p>
+    </ol>
+  </div>
+
+    <p><h2>Reviews</h2></p>
+    <div class="list-group">
+    <Ol>
+      <div class="list-group-item" ng-repeat = "y in reviews">
+        {{y.username }} 's review
+        {{y.text}}
+        {{y.stars}} stars
+    </ol>
+  </div>
+    <h2>Average Rate {{AverageRate(reviews)}}</h2>
+      <h2>Skills</h2>
     <ul>
       <li ng-repeat = "z in skills">
         {{z}}
@@ -38,8 +46,8 @@
         placeholder= "add Review" ng-model ="review"/><br />
         <p><input name="stars" type="text" class="form-control"
           placeholder= "no of stars" ng-model ="stars"/><br />
-        <a class="btn btn-primary" ng-click="add_Review(review,stars)" >Add Review</a></p>
+        <a class="btn btn-primary" ng-click="add_Review(review.stars)" >Add Review</a></p>
 
-
+</div>
   </div>
   </div>

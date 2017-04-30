@@ -43,20 +43,22 @@ main.controller("businessCtrl",['$scope','$http','Session','$location',function 
   }
   $scope.create_event = function(){
     var event_name = $scope.event_name;
-    var event_description =$scope.desc+" : "+ $scope.event_description;
-    var businessName = user.businessName;
+    var event_description =$scope.event_description;
+    var event_owner = user.businessName;
     var date = $scope.date
     var all = {
       event_name : event_name,
       event_description : event_description,
-      businessName : businessName,
+      event_owner : event_owner,
       date : date
     }
+    console.log(all);
     $http.post("/api/service-providers/"+user.username+"/events",all).success(function(res){
       console.log(all);
       console.log(res);
+    }).error(function(err){
+      console.log(err);
     })
-
   }
 
   var stars = function(ratings){

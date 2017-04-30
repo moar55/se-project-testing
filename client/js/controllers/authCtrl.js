@@ -40,7 +40,6 @@ main.controller("authCtrl",['$scope','$http','Session','$location',function ($sc
                .success(function (response, status, headers, config) {
                  Session.setLoggedIn(response.user);
                  window.history.replaceState( {} , "Homepage", "/home" );
-                 $scope.error = "Loggged in!!";
                  $scope.$parent.body = {
                    'background-image':'none',
                    'background': 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(200,200,200,1))',
@@ -60,7 +59,6 @@ main.controller("authCtrl",['$scope','$http','Session','$location',function ($sc
                  Session.setLoggedIn(response.user);
                  window.history.replaceState( {} , "Business Homepage", "/business" );
                  $scope.$parent.log = false;
-                 $scope.error = "Loggged in!!";
                  $scope.$parent.body = {
                    'background-image':'none',
                    'background': 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(200,200,200,1))',
@@ -92,7 +90,6 @@ main.controller("authCtrl",['$scope','$http','Session','$location',function ($sc
                .success(function (response, status, headers, config) {
                  Session.setLoggedIn(response.user);
                  window.history.replaceState( {} , "Homepage", "/home" );
-                 $scope.error = "Registered!!";
                  $scope.$parent.body = {
                    'background-image':'none',
                    'background': 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(200,200,200,1))',
@@ -109,7 +106,7 @@ main.controller("authCtrl",['$scope','$http','Session','$location',function ($sc
                x.businessName = $scope.register_businessName;
                $http.post("/api/service-providers/register",x)
                .success(function (response, status, headers, config) {
-                 $scope.error = "Registered!!";
+                 $scope.error_register = "Registered!! Please wait for an admin to approve your request.";
                }).error(function (err) {
                  $scope.error_register = err.error;
                });

@@ -29,10 +29,13 @@
 
     <h1 class="text-center">Create Event</h1>
     <div class="modal-body" style="background-color : #32cd32" >
+      <form>
+
       <input class="form-control" placeholder="Event Name" ng-model="event_name" /><br />
       <input class="form-control" placeholder="Description" type="text" ng-model="event_description" /><br />
       <input class="form-control" placeholder="Date" type="date" ng-model="date" /><br />
-      <button class="btn-primary" data-dismiss="modal" ng-click="">Submit</button>
+      <button class="btn-primary" type="submit" data-dismiss="modal" ng-click="create_event()">Submit</button>
+    </form>
     </div>
     </div>
     </div>

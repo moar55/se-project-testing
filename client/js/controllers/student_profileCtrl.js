@@ -1,6 +1,5 @@
 main.controller("student_profileCtrl",['$scope','$http','$routeParams' ,'Session','$location',function($scope,$http,$routeParams ,Session,$location){
 
-
     $http.get("/api/students/"+$routeParams.username).then(function (res) {
       $scope.username = res.data.username;
       $scope.firstName = res.data.firstName ;

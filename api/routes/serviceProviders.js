@@ -416,7 +416,7 @@ router.post('/password-reset&id=:id',function (req, res) {
         username: req.params.username
       },function (err, serviceProvider) {
         var z = new News({
-            News: 'An event: '+req.body.event_name+" \nDescription:"+req.body.event_description,
+            News: req.body.event_name+" \nDescription:"+req.body.event_description,
             User: serviceProvider.businessName
         });
 

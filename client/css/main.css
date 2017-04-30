@@ -22,6 +22,12 @@ html{
   margin-bottom: 1%;
   font-size: 10px;
   color:white;
+  opacity:0.8;
+  transition-duration:0.4s;
+  border-radius:4px;
+}
+.main_button:hover{
+  opacity:1;
 }
 #login_div{
   box-shadow: 2px 2px 2px black;

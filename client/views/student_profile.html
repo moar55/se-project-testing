@@ -1,25 +1,35 @@
-<div ng-controller = "student_profileCtrl">
-  <div   id = "profile" >
-    <h1>Welcome to {{username}}'s Profile  <a   id = "pencil"  style ="cursor:pointer" ng-click = "edit_general()"><i class="fa fa-pencil" aria-hidden="true"  ></i> General Info  </a> </h1>
-    <!-- <img src = <%= "uploads/"+{{img}} %> > -->
-    <p>First Name:{{firstName}} </p>
-    <p>Last Name:{{lastName}} </p>
-    <p>age:{{age}} </p>
-    <p>mobileNumber:{{mobileNumber}} </p>
-    <p>email : {{email}}</p>
-    <p>nationality:{{nationality}} </p>
-    <p>school:{{school}} </p>
-    <p>Interests </p>
-    <ul>
-      <li ng-repeat="x in interestTags track by $index">
+<div ng-controller = "student_profileCtrl" class="prof_div">
+  <div  class="container" id = "profile" >
+    <h1>Welcome to {{username}}'s Profile  <a   id = "pencil"  style ="cursor:pointer;" ng-click = "edit_general()"><i class="fa fa-pencil" aria-hidden="true"  ></i> General Info  </a> </h1>
+
+    <div class="col-sm-4" >
+    <p><h2>First Name</h2><h3>{{firstName}}</h3> </p>
+    <p><h2>Last Name</h2><h3>{{lastName}}</h3> </p>
+    <p><h2>age</h2><h3>{{age}}</h3> </p>
+    <p><h2>mobileNumber</h2><h3>{{mobileNumber}}</h3> </p>
+    <p><h2>email</h2><h3>{{email}}</h3></p>
+    <p><h2>nationality</h2><h3>{{nationality}}</h3> </p>
+    <p><h2>school</h2><h3>{{school}}</h3> </p>
+  </div>
+
+    <div class="col-sm-4" >
+    <h2>Interests</h2>
+    <div class="list-group">
+    <ol>
+      <div class="list-group-item" ng-repeat="x in interestTags track by $index">
         {{x}}
-      </li>
-    </ul>
-    <p>Courses </p>
-    <ul>
-      <li ng-repeat="y in courses track by $index">
+      </div>
+    </ol>
+  </div>
+    <p><h2>Courses</h2></p>
+    <div class="list-group">
+    <ol>
+      <div class="list-group-item" ng-repeat="y in courses track by $index">
         {{y.name}}
-      </li>
-    </ul>
+      </div>
+    </ol>
+  </div>
+  </div>
+
   </div>
   </div>

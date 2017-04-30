@@ -30,7 +30,7 @@ main.controller("serviceprovider_profileCtrl",['$scope','$http','$routeParams','
     return avg;
 
     }
-    
+
     if(Session.isLoggedIn().businessName == $routeParams.businessName)
       {
         $("#pencil").show();
